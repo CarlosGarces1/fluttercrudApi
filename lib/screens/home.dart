@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void getToken() async {
     token = await login();
+    getUsers();
     print(token);
   }
 
@@ -30,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     getToken();
-    getUsers();
   }
 
   @override
@@ -428,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen> {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization':
-            'Bearer 1|YFe7RMIffpaHSSs364yd4g5UEWAPGqjEq4ITemOj186ad6d7'
+            'Bearer 14|zeprw08EALJOqD2yGm3GIE2jSAluWfZKpeOiXIyb30cb4b76'
       },
     );
     if (response.statusCode == 200) {
@@ -456,8 +456,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Uri.parse(usersURL),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization':
-            'Bearer 1|YFe7RMIffpaHSSs364yd4g5UEWAPGqjEq4ITemOj186ad6d7'
+        'Authorization': 'Bearer $token'
       },
       body: jsonEncode(userData),
     );
@@ -482,8 +481,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Uri.parse('$usersURL/$id'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization':
-            'Bearer 1|YFe7RMIffpaHSSs364yd4g5UEWAPGqjEq4ITemOj186ad6d7'
+        'Authorization': 'Bearer $token'
       },
       body: jsonEncode(userData),
     );
@@ -499,8 +497,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Uri.parse('$usersURL/$index'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization':
-            'Bearer 1|YFe7RMIffpaHSSs364yd4g5UEWAPGqjEq4ITemOj186ad6d7'
+        'Authorization': 'Bearer $token'
       },
     );
     if (response.statusCode == 200) {
