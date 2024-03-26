@@ -428,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen> {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization':
-            'Bearer 14|zeprw08EALJOqD2yGm3GIE2jSAluWfZKpeOiXIyb30cb4b76'
+            'Bearer $token'
       },
     );
     if (response.statusCode == 200) {
